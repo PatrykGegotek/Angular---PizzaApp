@@ -1,0 +1,14 @@
+<h1>Twój profil</h1>
+<h2>{{email}}</h2>
+<form>
+    <div class="form-group">
+      <label for="address">Adres</label>
+      <input type="text" class="form-control" id="address" [(ngModel)]="address" [ngModelOptions]="{standalone: true} " >
+      <label for="postcode">Kod pocztowy</label>
+      <input type="text" class="form-control" id="postcode" [(ngModel)]="postcode" [ngModelOptions]="{standalone: true} " >
+      <label for="city">Miasto</label>
+      <input type="text" class="form-control" id="city" [(ngModel)]="city" [ngModelOptions]="{standalone: true} " >
+    </div>
+  </form>
+  <p style="font-size: 1.2em;">{{msg}}</p>
+  <button type="button" style="margin-top: 10px;" class="btn btn-dark" (click)="save()">Zapisz zmiany</button>

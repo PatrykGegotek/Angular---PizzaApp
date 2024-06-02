@@ -1,0 +1,24 @@
+<div class="back" style="display:flex;"(click)="goBack()">
+  <fa-icon [icon]="faChevronLeft" size="lg"(click)="goBack()"></fa-icon>
+  <p>Wróć</p>
+</div>
+<form>
+    <div class="form-group">
+      <label for="name">Nazwa</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="name" [ngModelOptions]="{standalone: true} " >
+      <label for="origin">Kuchnia</label>
+      <input type="text" class="form-control" id="origin" [(ngModel)]="origin" [ngModelOptions]="{standalone: true} " >
+      <label for="type">Typ</label>
+      <input type="text" class="form-control" id="type" [(ngModel)]="type" [ngModelOptions]="{standalone: true} " >
+      <label for="ingridients">Składniki</label>
+      <input type="text" class="form-control" id="ingridients" [(ngModel)]="ingridients" [ngModelOptions]="{standalone: true} " >
+      <label for="price">Cena</label>
+      <input type="number" class="form-control" id="price" [(ngModel)]="price" [ngModelOptions]="{standalone: true} " >
+      <label for="price">Maksymalna ilość</label>
+      <input type="number" class="form-control" id="price" [(ngModel)]="max_amount" [ngModelOptions]="{standalone: true} " >
+      <label for="rating">Opis</label>
+      <input type="text" class="form-control" id="rating" [(ngModel)]="description" [ngModelOptions]="{standalone: true} ">
+    </div>
+  </form>
+  <p style="font-size: 1.2em;">{{msg}}</p>
+  <button type="button" style="margin-top: 10px;" class="btn btn-dark" (click)="save()">Zapisz zmiany</button>

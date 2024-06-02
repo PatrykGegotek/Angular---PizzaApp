@@ -1,0 +1,12 @@
+<div style="margin-left:10px;margin-top:10px;">
+    <p style="font-size:1.5em;">Zarządzanie użytkownikami</p>
+    <div *ngFor="let u of users; let i = index" [attr.data-index]="i"> 
+        <app-user-element
+        [email]="u"
+        [client]="data[i][1]"
+        [admin]="data[i][0]"
+        [manager]="data[i][2]"
+        [banned]="data[i][3]">
+        </app-user-element>
+    </div>
+</div>

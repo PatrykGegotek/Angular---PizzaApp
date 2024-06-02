@@ -1,0 +1,27 @@
+<div class="back" (click)="goBack()">
+    <fa-icon [icon]="faChevronLeft" size="lg"(click)="goBack()"></fa-icon>
+    <p>Wróć</p>
+</div>
+<div style="display: flex;flex-direction: column;align-items: center;">
+    <div class="wrapper" style="display: flex;flex-direction: column;align-items: flex-start;">
+    <img [src]="photoLink" alt={{link_to_photos}}>
+    <fa-icon [icon]="faChevronLeft" size="lg" class="left" (click)="prevImg()"></fa-icon>
+    <fa-icon [icon]="faChevronRight" size="lg" class="right" (click)="nextImg()"></fa-icon>
+    <div style="display: flex;justify-content: center;" *ngIf="client">
+        <fa-icon [icon]="faMinusCircle" size="lg" (click)="resign()" [ngStyle]="{'opacity': ordered==0 ?'0.5' : '1' }"></fa-icon>
+        <p style="margin:0px 10px 0px 10px ; font-size: large;">{{ordered}}</p>
+        <fa-icon [icon]="faPlusCircle" size="lg" (click)="order()" [ngStyle]="{'visibility': max_amount==0 ?'hidden' : 'visible' }"></fa-icon>
+    </div>
+    <p *ngIf="max_amount==0" style="font-weight:bold">[Niedostępne] {{name}}</p>
+    <p *ngIf="max_amount>0" [ngStyle]="{'font-weight': max_amount<=3 ?'bold' : 'normal' }">Nazwa: {{name}}</p>
+    <p *ngIf="rating==0">Brak ocen</p>
+    <p *ngIf="rating>0">Ocena: {{rating}}</p>
+    <p>Cena: {{price}}</p>
+    <p>Typ: {{type}}</p>
+    <p>Kuchnia: {{origin}}</p>
+    <p>Składniki: {{ingridients}}</p>
+    <p>Opis: {{description}}</p>
+    <button type="button" class="btn btn-dark"  *ngIf="manager" (click)="goToEdit()">Edytuj</button>
+    <app-rating style="width: 100%;" [id]="id" [old_rating]="rating"></app-rating>
+    </div>
+</div>

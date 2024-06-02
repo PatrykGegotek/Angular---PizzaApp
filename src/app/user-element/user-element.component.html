@@ -1,0 +1,27 @@
+    <p style="font-size:1.2em;">{{email}}</p>
+<div style="display:flex;justify-content: space-evenly;position: relative;bottom: 40px">
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" [checked]="admin" (change)="adminChange()">
+        <label class="form-check-label" for="flexCheckDefault">
+          Admin
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" [checked]="client" (change)="clientChange()">
+        <label class="form-check-label" for="flexCheckChecked">
+          Klient
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" [checked]="manager" (change)="managerChange()">
+        <label class="form-check-label" for="flexCheckDefault">
+          Manager
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" [checked]="banned" (change)="bannedChange()">
+        <label class="form-check-label" for="flexCheckChecked">
+          Zbanowany
+        </label>
+      </div>
+</div>

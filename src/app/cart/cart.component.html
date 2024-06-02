@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="left-component">
+        <p style="font-size:2em">Koszyk</p>
+        <p style="font-size:1.2em">{{msg}}</p>
+        <p *ngIf="reserved.length===0">Brak produktów w koszyku</p>
+        <div class="current-order" style="display: flex;" *ngFor="let r of reserved">
+            <img [src]="r.link_to_photos[0]" style="height: 200px;width: 200px;border-radius: 8px;">
+            <div class="info">
+                <p style="font-size:1.2em">{{r.name}} x {{r.ordered}}</p>
+                <p style="font-size:1.2em">Cena: {{r.price}}</p>
+                <p style="font-size:1.2em">Suma: {{r.price * r.ordered}}</p>
+            </div>
+        </div>
+        <p *ngIf="reserved.length!==0" style="font-size:1.6em">Do zapłaty: {{getPriceSum()}}</p>
+        <button type="button" class="btn btn-dark" style="margin: 5px;" *ngIf="reserved.length!==0" (click)="buy()">Zapłać</button>
+    </div>
+    <div class="right-component">
+        <p style="font-size:2em">History</p>
+        <div class="orders" *ngIf="dates">
+            <div *ngFor="let order of history">
+                <div class="date">
+                    Date: {{order.date}}
+                </div>
+                <div *ngFor="let dish of order.dishes">
+                    <div>
+                        {{dish.name}} x {{dish.amount}} = {{dish.price}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

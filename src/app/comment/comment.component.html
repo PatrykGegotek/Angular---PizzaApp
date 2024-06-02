@@ -1,0 +1,8 @@
+<div style="border: 1px black solid;border-radius:10px;margin: 5px 0px;background-color: whitesmoke;">
+    <h5 *ngIf="nick==undefined">gość</h5>
+    <h5 *ngIf="nick!=undefined">{{nick}}</h5>
+    <h6>{{title}}</h6>
+    <p>{{description}}</p>
+    <p *ngIf="date!=undefined">Data zakupu: {{date}}</p>
+    <h5 *ngIf="new_rating">{{new_rating}}/5</h5>
+</div>

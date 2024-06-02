@@ -1,0 +1,35 @@
+<h3>Opinie</h3>
+<div *ngFor="let rating of rating_list">
+  <app-comment [new_rating]="rating.new_rating"
+  [nick]="rating.email"
+  [title]="rating.title"
+  [description]="rating.description"
+  [date]="rating.date"
+  [new_rating]="rating.rating">
+  </app-comment>
+</div>
+<h3 *ngIf="!reviewed && bought || manager">Dodaj opinię. Obowiązkowe pola zaznaczone są gwiazdką (*)</h3>
+<h4>{{msg}}</h4>
+<form *ngIf="!banned && !reviewed && bought || manager">
+  <div style="display:flex;flex-direction: column;"class="form-group" style="width:100%">
+    <div style="display:flex;margin-top: 10px;">
+      <label for="nick">Tytuł*</label>
+      <input type="text" class="form-control" id="title" [(ngModel)]="title" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div style="display: flex;margin-top: 10px;">
+      <label for="description">Opis*</label>
+      <input type="text" class="form-control" id="description" [(ngModel)]="description" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div style="display:flex;justify-content:space-between;margin-top: 10px;margin-bottom: 10px;">
+      <div style="display:flex;" *ngIf="!manager">
+        <label for="nick">Ocena 1-5*</label>
+        <input style="width: 100px;"type="number" min="1" max="5" class="form-control" id="rate"[(ngModel)]="new_rating" [ngModelOptions]="{standalone: true}">
+      </div>
+      <div style="display:flex" *ngIf="!manager">
+        <label for="date">Data zakupu</label>
+        <input style="width: 200px;"type="date" class="form-control" id="date" [(ngModel)]="date" [ngModelOptions]="{standalone: true}">
+      </div>
+      <button type="button" class="btn btn-dark" (click)="addRating()">Dodaj opinię</button>
+    </div>  
+</div>
+</form>
